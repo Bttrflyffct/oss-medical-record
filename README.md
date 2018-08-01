@@ -35,6 +35,8 @@ git clone https://github.com/zcom-cloud-blockchain/oss-medical-record.git
 cd oss-medical-record
 npm install
 ```
+### Set up for deploy contracts
+You need to set up [zcom-blockchain-cp](https://github.com/zcom-cloud-blockchain/zcom-blockchain-cp).
 
 ### Deploy contracts
 ```bash
@@ -42,21 +44,6 @@ cd oss-medical-record
 truffle migrate
 ```
 
-### Set up for Z.com Cloud Blockchain
-See [Basic Configuration](https://guide.blockchain.z.com/docs/dapp/setup/)
-
-- ##### Set CNS address on admin console
-  1. Open a file 'build/contracts/ContractNameService.json'
-
-  2. Use 'networks.(network-id).address' as CNS address to register as ABI address on admin console
-
-See [Contract Creation Process](https://guide.blockchain.z.com/docs/dapp/contract/)
-- ##### Set Contract ABIs on admin console
-  1. Open following files
-    ```bash
-    'provider/build/contracts/ProxyController.json'
-    ```
-  2. Use 'networks.(network-id).address' and 'abi' values to register as Contract ABIs on admin console
 
 ### Configure for client
 Create public/js/config.json based on public/js/config_template.json. Edit "CNS", "ORGANIZATIONS_ADDRESS" and "HISTORIES_ADDRESS" which you deployed.
