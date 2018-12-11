@@ -31,56 +31,25 @@ see [Setup Development Environment](https://guide.blockchain.z.com/docs/init/set
 
 ### Install application
 ```bash
-git clone --recursive https://github.com/zcom-cloud-blockchain/oss-medical-record.git
-cd oss-medical-record/server
+git clone https://github.com/zcom-cloud-blockchain/oss-medical-record.git
+cd oss-medical-record
 npm install
 ```
-
-### Create admin account
-```bash
-cd oss-medical-record
-node server/create_admin_account.js
-```
-
-### Configure for contracts
-Create provider/config.json based on provider/config_template.json. Edit "adminAddress" and "adminGroupId". "adminGroupId" is a random string.
+### Set up for deploy contracts
+You need to set up [zcom-blockchain-cp](https://github.com/zcom-cloud-blockchain/zcom-blockchain-cp).
 
 ### Deploy contracts
-* Attention  
-  At September 1, 2017, truffle should be used at version 3.4.5.  
-  (There is a bug in web3.js related with truffle version 3.4.6 or later, and the deployment does not work properly.)  
-  https://github.com/ethereum/web3.js/issues/990
 ```bash
-cd oss-medical-record/provider
+cd oss-medical-record
 truffle migrate
 ```
 
-### Set up for Z.com Cloud Blockchain
-See [Basic Configuration](https://guide.blockchain.z.com/docs/dapp/setup/)
-
-- ##### Set CNS address on admin console
-  1. Open a file 'provider/build/contracts/ContractNameService.json'
-  
-  2. Use 'networks.(network-id).address' as CNS address to register as ABI address on admin console
-
-See [Contract Creation Process](https://guide.blockchain.z.com/docs/dapp/contract/)
-- ##### Set Contract ABIs on admin console
-  1. Open following files
-    ```bash
-    'provider/build/contracts/History_v1.json'
-    'provider/build/contracts/Organization_v1.json'
-    'provider/build/contracts/Record_v1.json'
-    ```
-  2. Use 'networks.(network-id).address' and 'abi' values to register as Contract ABIs on admin console
-
-### Configure for server
-Create server/config.json based on server/config_template.json. Edit "account" and "password" of admin which you created.
 
 ### Configure for client
-Create server/public/js/config.js based on server/public/js/config_template.js. Edit "CNS" which you deployed.
+Create public/js/config.json based on public/js/config_template.json. Edit "CNS", "ORGANIZATIONS_ADDRESS" and "HISTORIES_ADDRESS" which you deployed.
+
 
 ### Start application
 ```bash
-cd oss-medical-record
-node server/app.js
+node app.js
 ```

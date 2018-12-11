@@ -1,1 +1,0 @@
-const CNS = 'Please set your cns address';
